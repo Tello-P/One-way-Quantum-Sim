@@ -13,6 +13,11 @@ typedef struct {
   double img;
 } Complex;
 
+void cz_gate(Complex cluster[N], int control_q, int target_q);
+
 void initialize_qubit_cluster(Complex cluster[]);
 
+void entangle_qubits(Complex cluster[]);
+
+void print_qstates(Complex cluster[]);
 #endif
