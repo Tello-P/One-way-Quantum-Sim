@@ -1,19 +1,18 @@
 #ifndef QUANTUM_STATE_H
 #define QUANTUM_STATE_H
 
+#include <math.h>
 #include <stdint.h>
-#include <complex.h>
 
-typedef double complex complex_t;
+#define QUBITS_NUM 2
+#define N (1 << QUBITS_NUM)
+#define AMP (1.0 / sqrt(N))
 
 typedef struct {
-  uint32_t num_qubits;
-  uint64_t dim;
-  complex_t *data;
-} statevector_t;
+  double real;
+  double img;
+} Complex;
 
-statevector_t* create_sv(uint32_t n);
-void free_sv(statevector_t *sv);
-double calculate_norm(statevector_t *sv);
+void initialize_qubit_cluster(Complex cluster[]);
 
 #endif

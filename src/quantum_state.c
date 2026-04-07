@@ -1,14 +1,19 @@
+#include "../includes/quantum_state.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include "quantum_state.h"
 
-statevector_t* create_sv(uint32_t n) {
+void initialize_qubit_cluster(Complex cluster[]) {
+  for (int i = 0; i < N; i++) {
+    cluster[i].real = AMP;
+    cluster[i].img = 0;
+  }
 }
 
-void free_sv(statevector_t *sv) {
-}
+int main() {
+  Complex cluster[N];
+  initialize_qubit_cluster(cluster);
 
-double calculate_norm(statevector_t *sv){
-
+  for (int i = 0; i < N; i++) {
+    printf("%f, ", cluster[i].real);
+    printf("%f\n", cluster[i].img);
+  }
 }
